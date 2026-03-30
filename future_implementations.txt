@@ -1,0 +1,60 @@
+Future implementation ideas for RuneScape bond vs S&P 500 correlation analysis:
+
+1. Return-based analysis
+- calculate daily log returns and simple percent returns for both series
+- compare return correlations instead of price correlations
+- test different return horizons (1d, 5d, 10d)
+
+2. Stationarity and cointegration
+- run Augmented Dickey-Fuller (ADF) tests on bond and SP500 levels
+- run KPSS tests on the same series
+- if levels are nonstationary, focus on returns or cointegration residuals
+- test whether the bond/SP500 pair is cointegrated
+
+3. Lead-lag and causality
+- compute cross-correlation for a range of lags and compare results across rolling windows
+- run Granger causality tests using multiple lag orders
+- validate results out-of-sample to avoid data-snooping bias
+
+4. Rolling stability and regime analysis
+- compute rolling 30d/60d correlation of returns
+- identify periods when correlation strengthens or weakens
+- compare pre-2022 vs post-2022 performance
+
+5. Volatility and distributional metrics
+- compare rolling volatility of bond and SP500 returns
+- analyze skewness, kurtosis, tail behavior, and drawdowns
+- compute ratio of bond volatility to SP500 volatility
+
+6. Multiple bonds and items
+- test additional RuneScape items beyond the bond
+- compare OSRS vs RS3 data sources if available
+- aggregate several RS items into a sentiment index
+
+7. Alternative benchmarks
+- compare bond returns to Nasdaq, Russell 2000, VIX, or gold
+- compare to macro factors such as consumer sentiment, CPI, retail sales
+- test whether RS bond data is predicting broader risk appetite rather than just equity returns
+
+8. Signal design and backtesting
+- implement simple rules, e.g. bond return momentum over 30 days
+- test buy/sell signals with fixed lag and holding period
+- compare strategy returns to a baseline buy-and-hold benchmark
+- include overfitting checks and walk-forward validation
+
+9. Data quality and robustness
+- use high/low/avg separately to see whether the signal depends on pricing method
+- test alternate aggregations: moving averages, median prices, volume-weighted prices
+- check sensitivity to sample length and data start date
+
+10. Presentation and diagnostics
+- add visualizations for cross-correlation, rolling metrics, and signal performance
+- export summary statistics and results to CSV or markdown
+- document assumptions, limitations, and potential sources of bias
+
+Other ideas:
+- build a Jupyter notebook for interactive experimentation
+- add command-line flags for item IDs, lag range, and output file names
+- add automated data caching to avoid repeated API requests
+- add a separate script for fetching and storing raw historical data
+- build a small dashboard for monitoring newer data and signal health
