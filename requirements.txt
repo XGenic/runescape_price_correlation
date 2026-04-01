@@ -5,3 +5,8 @@ scipy
 yfinance
 requests
 seaborn
+statsmodels
+pandas-datareader
+arch
+ruptures
+pyarrow
