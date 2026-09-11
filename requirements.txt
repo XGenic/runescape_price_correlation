@@ -10,3 +10,8 @@ pandas-datareader
 arch
 ruptures
 pyarrow
+jupyterlab
+ipykernel
+nbclient
+nbformat
+nbconvert

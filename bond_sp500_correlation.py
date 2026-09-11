@@ -138,7 +138,7 @@ def plot_results(output_path: str, joint: pd.DataFrame, corr_df: pd.DataFrame, b
 
 def main():
     parser = argparse.ArgumentParser(description="Analyze RuneScape bond prices vs S&P 500.")
-    parser.add_argument("--item-id", type=int, default=12532, help="RuneScape item ID for the bond")
+    parser.add_argument("--item-id", type=int, default=13190, help="RuneScape item ID for the bond")
     parser.add_argument("--market", type=str, default="osrs", choices=["osrs"], help="RuneScape market to use")
     parser.add_argument("--timestep", type=str, default="24h", choices=["5m", "1h", "6h", "24h"], help="Time interval for RuneScape history")
     parser.add_argument("--symbol", type=str, default="^GSPC", help="Ticker symbol for the equity index")
